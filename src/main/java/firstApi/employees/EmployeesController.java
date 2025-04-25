@@ -1,4 +1,4 @@
-package employees;
+package firstApi.employees;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
