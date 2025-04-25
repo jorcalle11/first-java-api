@@ -17,15 +17,15 @@ public class MySQLConnection {
   
   // Load database properties from db.properties file at runtime
   static {
-    try (InputStream input = MySQLConnection.class.getClassLoader().getResourceAsStream("db.properties")) {
+    try (InputStream input = MySQLConnection.class.getClassLoader().getResourceAsStream("application.properties")) {
       Properties prop = new Properties();
       if (input == null) {
         throw new RuntimeException("⚠️ db.properties file not found");
       }
       prop.load(input);
-      url = prop.getProperty("db.url");
-      user = prop.getProperty("db.user");
-      password = prop.getProperty("db.password");
+      url = prop.getProperty("spring.datasource.url");
+      user = prop.getProperty("spring.datasource.username");
+      password = prop.getProperty("spring.datasource.password");
     } catch (Exception ex) {
       throw new RuntimeException("❌ Failed to load database config: " + ex.getMessage(), ex);
     }
